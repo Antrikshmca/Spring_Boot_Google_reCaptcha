@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="class-header bg-primary text-white text-center">
+        <h3>EMPLOYEE DATA</h3>
+  </div>
+<table class="table table-hover">
+<tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>SALARY</th>
+    <th>ADDRESS</th>
+</tr>
+    <tr th:each ="ob:${list}">
+    <td th:text="${ob.id}"></td>
+    <td th:text="${ob.name}"></td>
+    <td th:text="${ob.salary}"></td>
+    <td th:text="${ob.address}"></td>
+</tr>
+</table>
+   <div>
+       <a th:href="@{/employee/register}" class="btn btn-info">ADD</a>
+   </div>
+   </body>
+  </html>

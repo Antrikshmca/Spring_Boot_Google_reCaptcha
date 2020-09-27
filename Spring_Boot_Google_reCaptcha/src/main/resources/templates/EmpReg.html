@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+      <div class ="container">
+           <div class ="card"></div>
+                <div class ="card-header">
+                  <div class="card-header bg-primary text-white text-center">
+                    <h3>EMPLOYEE REGISTRATION FORM</h3>
+      </div>
+
+      <div class ="card-body">
+        <form th:action="@{/employee/save}" method="post" th:object="${employee}">
+             <div class="row">
+                 <div class="col-2"> NAME</div>
+                     <div class="col-4">
+                         <input type="text" th:Field="*{name}" class="form-control"/>
+                      </div>
+      </div>
+
+     <div class="row">
+        <div class="col-2">SALARY </div>
+            <div class="col-4">
+                 <input type="text" th:Field="*{salary}" class="form-control" />
+            </div>
+     </div>
+
+
+           <div class="row">
+              <div class="col-2">ADDRESS </div>
+                   <div class="col-4"><input type="text" th:Field="*{address}" class="form-control"/> 
+                   </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-2">VALIDATOR </div>
+                   <div class="col-4">
+                    <div class="g-recaptcha" data-sitekey="6LcXAtEZAAAAACX9dhm8KHtbrnr0AO08StGJcD_-"></div>
+                   </div>
+            </div>
+            
+            
+            <input type="submit" value="Add employee" class="btn btn-success" />
+            <a th:href="@{/employee/all}" class="btn btn-info">VIEW ALL</a>
+        </pre>
+   </form>
+              </div>
+                    <div class ="card-footer">
+                            <span th:text="${message}"></span>
+                    </div>
+
+                    </div>
+     </body>
+    </html>
